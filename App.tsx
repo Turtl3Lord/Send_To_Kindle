@@ -11,27 +11,27 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { HomeScreen } from './src/pages/HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ConverterScreen } from './src/pages/ConverterScreen';
+import { SendToKindleScreen } from './src/pages/SendToKindleScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-
+const Tab = createBottomTabNavigator();
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'light-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
+        <Tab.Screen name="HomeScreen" component={HomeScreen} />
+        <Tab.Screen name="SendToKindle" component={SendToKindleScreen} />
+        <Tab.Screen name="Converter" component={ConverterScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
-function AppContent() {
 
-  return (
-    <View >
-      <Text>Test</Text>
-      <TextInput placeholder="Test Input" />
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
