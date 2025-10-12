@@ -11,10 +11,9 @@ function App() {
 const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
-        <Tab.Screen name="HomeScreen" component={HomeScreen} />
-        <Tab.Screen name="SendToKindle" component={SendToKindleScreen} />
+      <Tab.Navigator initialRouteName='Converter' screenOptions={{headerShown:false}}>
         <Tab.Screen name="Converter" component={ConverterScreen} />
+        <Tab.Screen name="SendToKindle" component={SendToKindleScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
