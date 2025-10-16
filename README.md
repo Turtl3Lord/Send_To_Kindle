@@ -1,97 +1,111 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📚 Send To Kindle
 
-# Getting Started
+Aplicativo móvel desenvolvido em **React Native** que permite **converter arquivos para EPUB** e **enviar documentos diretamente para o Kindle**.  
+O projeto adota o padrão **MVP (Model–View–Presenter)** e integra módulos **C++** para o processamento e conversão de arquivos, com foco em modularidade, desempenho e clareza arquitetural.  
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-lightgrey)
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🧭 Visão geral
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+**Send To Kindle** tem como objetivo oferecer uma forma simples e eficiente de enviar e-books ao Kindle.  
+O aplicativo permite **converter arquivos de diferentes formatos para EPUB** e, opcionalmente, **enviá-los automaticamente para o e-mail Kindle do usuário**.  
 
-```sh
-# Using npm
-npm start
+O projeto também serve como **portfólio técnico**, destacando boas práticas de arquitetura, versionamento e documentação profissional.
 
-# OR using Yarn
-yarn start
-```
+---
 
-## Step 2: Build and run your app
+## ⚙️ Arquitetura
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+O projeto segue o padrão **MVP (Model–View–Presenter)**:
 
-### Android
+- **View (React Native)** – Interface e navegação, incluindo a *Bottom Navigation Bar* com as abas “Converter” e “Enviar para o Kindle”.  
+- **Presenter (TypeScript)** – Camada intermediária que gerencia a comunicação entre a interface e o domínio da aplicação.  
+- **Model (C++)** – Responsável pela lógica de conversão de arquivos para EPUB, com módulos separados para cada tipo de formato suportado.  
 
-```sh
-# Using npm
+Essa separação garante **facilidade de manutenção, testabilidade e escalabilidade**.
+
+---
+
+## 📱 Funcionalidades
+
+| Funcionalidade | Status | Descrição |
+|----------------|---------|------------|
+| Estrutura inicial do app | ✅ Concluído | Projeto configurado com React Native e C++. |
+| Navegação e telas principais | ✅ Concluído | Telas “Converter” e “Enviar” acessíveis via Bottom Navigation. |
+| Organização MVP | ✅ Concluído | Pastas criadas para separar camadas do padrão MVP. |
+| File Picker | ✅ Concluído | Implementado seletor de arquivos nativo. |
+| Conversão para EPUB (C++) | 🔄 Em andamento | Módulos criados, implementação pendente. |
+| Envio ao Kindle (TypeScript) | 🔍 Em análise | Decisão pendente entre lib pronta e implementação própria. |
+| Responsividade da interface | ⚙️ Em ajuste | Melhorias visuais em progresso. |
+| Suporte a múltiplos idiomas | 🧩 Planejado | Inicialmente disponível em português. |
+
+---
+
+## 🚀 Roadmap
+
+- [x] Estrutura inicial do projeto  
+- [x] Criação das telas e navegação principal  
+- [x] Organização das pastas conforme MVP  
+- [x] Implementação do file picker  
+- [x] Refatoração de estilos para pasta externa  
+- [x] Criação da pasta `converters/`  
+- [ ] Implementar módulo C++ de conversão para EPUB  
+- [ ] Implementar envio de arquivos para Kindle  
+- [ ] Ajustar responsividade da interface  
+- [ ] Adicionar suporte a novos formatos de conversão  
+- [ ] Adicionar testes automatizados  
+
+---
+
+## 🧩 Principais commits
+
+| Data | Tipo | Descrição |
+|------|------|------------|
+| 09/10/2025 | 🏗️ build | Estrutura inicial do projeto criada. |
+| 09/10/2025 | ✨ feat | Primeiro commit de inicialização. |
+| 10/10/2025 | ✨ feat | Adicionadas as telas Convert, Send e Home; navegação implementada. |
+| 10/10/2025 | 🧱 feat | Criadas as pastas MVP. |
+| 11/10/2025 | ✨ feat | Adicionado file picker e limpeza de imports. |
+| 12/10/2025 | 🧩 feat | Pasta `converters/` adicionada para futuros módulos C++. |
+| 12/10/2025 | 🔧 refactor | Linhas não utilizadas removidas. |
+| 12/10/2025 | 🎨 refactor(styles) | Estilos movidos para pasta externa. |
+
+---
+
+## 🧠 Tecnologias
+
+- **React Native (TypeScript)** – Interface e navegação.  
+- **C++ (Native Modules)** – Processamento e conversão de arquivos.  
+- **React Navigation** – Navegação entre telas com Bottom Tabs.  
+- **Android / iOS** – Suporte multiplataforma.  
+
+---
+
+## 🧪 Status do desenvolvimento
+
+O aplicativo encontra-se na **fase de construção funcional**, com a estrutura de telas e navegação finalizadas e a base C++ preparada para receber a lógica de conversão.  
+O envio ao Kindle e a implementação dos módulos de conversão ainda estão em desenvolvimento.
+
+---
+
+## ⚙️ Como executar o projeto
+
+```bash
+# Clone este repositório
+git clone https://github.com/Turtl3Lord/Send_To_Kindle.git
+
+# Acesse a pasta
+cd Send_To_Kindle
+
+# Instale as dependências
+npm install
+
+# Execute no Android
 npm run android
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# Execute no iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
