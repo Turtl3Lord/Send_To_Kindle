@@ -6,11 +6,8 @@ export const CreateConverterStyles = ( params: {
   width: number; height: number; orientation: "portrait" | "landscape" }) => {
   const { width, height, orientation } = params;
  const gridFlex = orientation === "portrait" ? 5 : 1; // mais espaço em portrait
-  const buttonFlex = orientation === "portrait" ? 3 : 2;
-  const itemSize = {
-    width: orientation === "portrait" ? width / 5 - 20 : height / 5 - 20, 
-    height: orientation === "portrait" ? width / 3 - 20 : height / 3 - 20,
-  };
+  const buttonFlex = orientation === "portrait" ? 3 : 1;
+ 
 
   // Ou calcular tamanhos relativos:
   const horizontalPadding = Math.min(2, width * 0.05);
@@ -29,31 +26,29 @@ export const CreateConverterStyles = ( params: {
     grid: {
       flex: gridFlex,
       width: "100%",
-      borderWidth: 1,
-      borderColor: "#ccc",
       borderRadius: 8,
       paddingTop: orientation === "portrait" ? 10 : 0,
       paddingHorizontal: orientation === "portrait" ? 5 : 0,
       flexDirection: "row",
       flexWrap: "wrap",
-      justifyContent: "space-between",
-      backgroundColor: "#e6e6e6ff",
+      justifyContent: "flex-start",
     },
     item: {
-      width: orientation === "portrait" ? "30%" : "20%",
+      width: orientation === "portrait" ? "30%" : "15%",
       aspectRatio: 1,
       backgroundColor: "#f8f8f8ff",
       justifyContent: "center",
       alignItems: "center",
       marginBottom: 10,
       borderRadius: 8,
+      marginHorizontal: orientation === "portrait" ? 5 : 10,
     },
     buttonContainer: {
       flex: buttonFlex,
       width: "100%",
-      borderWidth: 1,
-      borderColor: "#ccccccff",
       borderRadius: 8,
+            backgroundColor: "#e6e6e6ff",
+
       padding: 10,
       justifyContent: "center",
       alignItems: "center",
@@ -74,12 +69,11 @@ export const CreateConverterStyles = ( params: {
       fontSize: Math.max(14, Math.round(width * 0.045)), // exemplo responsivo
     },
     touchableItem: {
-  flex: 1,                 // ocupa todo o espaço do pai
-  justifyContent: "center", 
-  alignItems: "center",
-  width: "100%",            // garante largura total do pai
-  height: "100%",           // garante altura total do pai
-}
-
+      width: "90%",
+      height: "90%", // ocupa todo o espaço do pai
+      justifyContent: "center",
+      alignItems: "center",
+      // garante altura total do pai
+    },
   });
 };
