@@ -43,7 +43,7 @@ export const CreateConverterStyles = ( params: {
       borderRadius: 8,
       marginHorizontal: orientation === "portrait" ? 5 : 10,
     },
-    buttonContainer: {
+    buttonsArea: {
       flex: buttonFlex,
       width: "100%",
       borderRadius: 8,
@@ -53,11 +53,26 @@ export const CreateConverterStyles = ( params: {
       justifyContent: "center",
       alignItems: "center",
     },
+    buttonsContainer: {
+      marginTop: 10,
+      justifyContent: "center",
+      height: "50%",
+      width: "50%",
+    },
+    buttonStyle: {
+      width: "100%",
+      height: "40%",
+      borderRadius: 8,
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: 10,
+
+    },
     pressable: {
-      backgroundColor: "#007BFF",
+      backgroundColor: "#ff5e00ff",
       paddingVertical: 12,
       paddingHorizontal: 20,
-      borderRadius: 8,
+      borderRadius: 5,
     },
     pressableText: {
       color: "#fff",
@@ -74,6 +89,11 @@ export const CreateConverterStyles = ( params: {
       justifyContent: "center",
       alignItems: "center",
       // garante altura total do pai
+    },
+    selectedItem: {
+      borderWidth: 3,
+      borderColor: "#007BFF",
+      borderRadius: 8,
     },
   });
 };

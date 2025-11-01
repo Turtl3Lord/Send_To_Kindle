@@ -9,15 +9,14 @@ import { CreateConverterStyles } from "../styles/ConverterStyles";
 
 
 export const ConverterScreen = () => {
-  const items = Array.from({ length: 3 }).map((_, i) => i + 1);
   const [layout, setLayout] = React.useState({ width: 0, height: 0 });
   const [wasSelected, setWasSelected] = React.useState(0);
   const [selectedFile, setSelectedFile] = React.useState<IFile | null>(null);
-const options = [
-  { id: 1, icon: require("../assets/converterIcons/mobi_to_epub.png") },
-  { id: 2, icon: require("../assets/converterIcons/word_to_epub.png") },
-  { id: 3, icon: require("../assets/converterIcons/txt_to_epub.png") },
-];
+  const options = [
+    { id: 1, icon: require("../assets/converterIcons/mobi_to_epub.png") },
+    { id: 2, icon: require("../assets/converterIcons/word_to_epub.png") },
+    { id: 3, icon: require("../assets/converterIcons/txt_to_epub.png") },
+  ];
 
   const clickedItem = (item: number) => {
     if (item === wasSelected) {
@@ -28,7 +27,6 @@ const options = [
   }
   const handleSelectFile = (file: IFile) => {
     setSelectedFile(file);
-    console.log('Selected file:', file);
   }
   const { width, height } = useOrientation();
 
@@ -51,16 +49,16 @@ const options = [
         <View style={styles.grid}>
           {options.map(option => (
             <View key={option.id} style={styles.item}>
-              
+
               <TouchableOpacity
-                style={styles.touchableItem}
+                style={[styles.touchableItem, wasSelected === option.id ? styles.selectedItem : null]}
                 onPress={() => clickedItem(option.id)}
               >
                 <Image
-  source={option.icon}
-  style={{ width: "100%", height: "120%" }}
-  resizeMode="contain"
-/>
+                  source={option.icon}
+                  style={{ width: "100%", height: "120%" }}
+                  resizeMode="contain"
+                />
 
               </TouchableOpacity>
             </View>
@@ -70,14 +68,32 @@ const options = [
 
         </View>
 
-        {/* BOTÃO */}
-        <View style={styles.buttonContainer}>
+        {/* select file button */}
+        <View style={styles.buttonsArea}>
           <Text>{selectedFile?.name || 'No file selected'}</Text>
+       
+       <View style={styles.buttonsContainer}>
 
           {wasSelected != 0 && (
-            <DocumentPicker selectFile={handleSelectFile} />
+           
+              <DocumentPicker style={styles.buttonStyle} selectFile={handleSelectFile} />
+          
           )}
+
+          {/* Converter file button*/}
+
+          
+
+{ selectedFile &&
+            <Pressable style={[styles.buttonStyle,{backgroundColor:"#ff9c07ff"}]} onPress={() => console.log("Converter file button pressed")}>
+              <Text>Convert File</Text>
+            </Pressable>}
+            </View>
+          
+
         </View>
+        
+
 
       </View>
     </SafeAreaView>
